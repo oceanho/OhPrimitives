@@ -11,6 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OhPrimitives", "src\OhPrimi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OhPrimitives.Test", "test\OhPrimitives.Test\OhPrimitives.Test.csproj", "{B40F798C-018C-46B6-AFBE-57A1CB77F0FF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tool", "tool", "{FA36F579-8A13-4A99-B296-BB317A6A5229}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "script", "script", "{7A7209A9-C00D-432D-99DD-A5A20E5C6D68}"
+	ProjectSection(SolutionItems) = preProject
+		tool\scripts\NugetPackTask.ps1 = tool\scripts\NugetPackTask.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,5 +39,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{BA547E65-B42A-4EC3-B4FA-1D5F412A2328} = {4C70A742-98C4-4918-BF87-584C79F71FC2}
 		{B40F798C-018C-46B6-AFBE-57A1CB77F0FF} = {40FC8ED2-F811-4D68-A4D9-6E644F17EBDE}
+		{7A7209A9-C00D-432D-99DD-A5A20E5C6D68} = {FA36F579-8A13-4A99-B296-BB317A6A5229}
 	EndGlobalSection
 EndGlobal
