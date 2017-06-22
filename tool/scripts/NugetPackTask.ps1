@@ -47,6 +47,6 @@ Function PublishNugetPack {
 		Return
 	}
 	Get-ChildItem "$NugetPack/*.nupkg" | ForEach-Object -Process {
-		"dotnet nuget push $_.FullName -s $NugetSvr -k $NugetKey"
+		Invoke-Expression "dotnet nuget push $_.FullName -s $NugetSvr -k $NugetKey"
 	}
 }
