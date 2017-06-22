@@ -1,2 +1,2 @@
 # OhPrimitiveTypes
-This is a extension primitive types for .net (C#)
+This is a external primitive types for .net (C#)
