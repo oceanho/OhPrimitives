@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.6;net46</TargetFrameworks>
+    <Description>OceanHo's primitive types library</Description>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>OceanHo</Authors>
+    <Company>OhTeam</Company>
+    <RepositoryUrl>https://github.com/oceanho/OhPrimitives.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/oceanho/OhPrimitives</PackageProjectUrl>
+    <PackageTags></PackageTags>
+    <Version>1.0.0</Version>
+    <PackageId>OhPrimitives</PackageId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.6|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard1.6\.xml</DocumentationFile>
+  </PropertyGroup>
+
+</Project>
