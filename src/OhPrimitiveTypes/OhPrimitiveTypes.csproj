@@ -2,12 +2,13 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.6;net46</TargetFrameworks>
-    <Description>Ocean Ho Primitive Types library</Description>
+    <Description>Ocean Ho Primitive Types library of DotNet</Description>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>OceanHo</Authors>
     <Company>OhTeam</Company>
     <RepositoryUrl>https://github.com/oceanho/OhPrimitiveTypes.git</RepositoryUrl>
     <PackageProjectUrl>https://github.com/oceanho/OhPrimitiveTypes.git</PackageProjectUrl>
+    <PackageTags>OceanHo</PackageTags>
   </PropertyGroup>
 
 </Project>
