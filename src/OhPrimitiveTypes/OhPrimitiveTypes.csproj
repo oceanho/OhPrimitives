@@ -9,6 +9,11 @@
     <RepositoryUrl>https://github.com/oceanho/OhPrimitiveTypes.git</RepositoryUrl>
     <PackageProjectUrl>https://github.com/oceanho/OhPrimitiveTypes.git</PackageProjectUrl>
     <PackageTags>OceanHo</PackageTags>
+    <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.6|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard1.6\.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>

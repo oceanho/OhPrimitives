@@ -29,7 +29,7 @@ namespace OhPrimitiveTypes
         }
 
         /// <summary>
-        /// 获取或者设置比较模式，有效值：（<see cref="{CompareMode.Equal}"/>）
+        /// 获取或者设置比较模式（有效比较比较模式为：CompareMode.Equal）
         /// </summary>
         public override CompareMode CompareMode
         {

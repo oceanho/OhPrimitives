@@ -12,7 +12,7 @@ namespace OhPrimitiveTypes
         where TPrimitive : IConvertible, IComparable
     {
         /// <summary>
-        /// 获取或者设置用于比较的 <see cref="TPrimitive"/> Value
+        /// 获取或者设置用于比较的Value
         /// </summary>
         TPrimitive Value { get; set; }
     }

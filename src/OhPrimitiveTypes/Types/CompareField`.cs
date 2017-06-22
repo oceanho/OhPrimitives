@@ -48,7 +48,7 @@ namespace OhPrimitiveTypes
         }
 
         /// <summary>
-        /// 获取或者设置 <see cref="TPrimitive"/> Value
+        /// 获取或者设置 Value
         /// </summary>
         public virtual TPrimitive Value
         {
@@ -57,7 +57,7 @@ namespace OhPrimitiveTypes
         }
 
         /// <summary>
-        /// 获取或者设置比较模式（有效值：<see cref="{CompareMode.Equal , CompareMode.NotEqualCompareMode.LessThan ,CompareMode.LessThanOrEqaual, CompareMode.GreaterThan , CompareMode.GreaterThanOrEqual}"/>）
+        /// 获取或者设置比较模式（有效比较比较模式为：CompareMode.Equal , CompareMode.NotEqualCompareMode.LessThan ,CompareMode.LessThanOrEqaual, CompareMode.GreaterThan , CompareMode.GreaterThanOrEqual）
         /// </summary>
         public virtual CompareMode CompareMode
         {

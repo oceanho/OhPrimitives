@@ -8,7 +8,7 @@ using OhPrimitiveTypes.Extension;
 namespace OhPrimitiveTypes
 {
     /// <summary>
-    /// 一个表示包含指定 <see cref="TPrimitive"/> 单值Like模糊比较功能的字段类
+    /// 一个表示包含指定单值Like模糊比较功能的字段类
     /// </summary>
     /// <typeparam name="TPrimitive"></typeparam>
     public class LikeField<TPrimitive> : Field, ISingleValueCompareField<TPrimitive>
@@ -50,7 +50,7 @@ namespace OhPrimitiveTypes
         }
 
         /// <summary>
-        /// 获取或者设置比较模式（有效比较比较模式为：<seealso cref="{CompareMode.LeftLike , CompareMode.RightLike , CompareMode.FullSearchLike}"/>）
+        /// 获取或者设置比较模式（有效比较比较模式为：CompareMode.LeftLike , CompareMode.RightLike , CompareMode.FullSearchLike）
         /// </summary>
         public CompareMode CompareMode
         {
@@ -66,7 +66,7 @@ namespace OhPrimitiveTypes
         }
 
         /// <summary>
-        /// 获取或者设置进行比较的 <see cref="TPrimitive"/> Value
+        /// 获取或者设置进行比较的 Value
         /// </summary>
         public TPrimitive Value
         {

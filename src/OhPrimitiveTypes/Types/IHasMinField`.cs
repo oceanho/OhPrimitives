@@ -16,6 +16,9 @@ namespace OhPrimitiveTypes
         /// </summary>
         TPrimitive? Min { get; set; }
 
+        /// <summary>
+        /// 获取或者设置最小值比较模式
+        /// </summary>
         CompareMode MinCompareMode { get; }
     }
 }

@@ -12,16 +12,27 @@ namespace OhPrimitiveTypes
         private CompareMode m_maxCompareMode = CompareMode.LessThanOrEqaual;
         private CompareMode m_minCompareMode = CompareMode.GreaterThanOrEqual;
 
+        /// <summary>
+        /// 实例化 <see cref="BetweenField{TPrimitive}"/>
+        /// </summary>
         public BetweenField()
             : this(DefaultTPrimitive, DefaultTPrimitive)
         {
         }
 
+        /// <summary>
+        /// 实例化 <see cref="BetweenField{TPrimitive}"/>
+        /// </summary>
+        /// <param name="min">最小值</param>
+        /// <param name="max">最大值</param>
         public BetweenField(TPrimitive? min, TPrimitive? max)
             : base(min, max, CompareMode.GreaterThanOrEqual, CompareMode.LessThanOrEqaual)
         {
         }
 
+        /// <summary>
+        /// 获取或者设置最小值比较模式（有效比较比较模式为：CompareMode.GreaterThanOrEqual）
+        /// </summary>
         public override CompareMode MinCompareMode
         {
             get => m_minCompareMode;
@@ -35,6 +46,9 @@ namespace OhPrimitiveTypes
             }
         }
 
+        /// <summary>
+        /// 获取或者设置最大值比较模式（有效比较比较模式为：CompareMode.LessThanOrEqaual）
+        /// </summary>
         public override CompareMode MaxCompareMode
         {
             get => m_maxCompareMode;

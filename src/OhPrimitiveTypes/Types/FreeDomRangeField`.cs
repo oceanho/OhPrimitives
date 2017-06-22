@@ -21,6 +21,9 @@ namespace OhPrimitiveTypes
         private CompareMode m_maxCompareMode = CompareMode.LessThanOrEqaual;
         private CompareMode m_minCompareMode = CompareMode.GreaterThanOrEqual;
 
+        /// <summary>
+        /// TPrimitive default
+        /// </summary>
         protected static readonly TPrimitive DefaultTPrimitive = default(TPrimitive);
 
         private static readonly CompareMode _maxAllowCopareModes = CompareMode.LessThan | CompareMode.LessThanOrEqaual;
@@ -87,7 +90,7 @@ namespace OhPrimitiveTypes
         }
 
         /// <summary>
-        /// 获取或者设置最小值比较模式，有效值：（<see cref="{CompareMode.GreaterThan , CompareMode.GreaterThanOrEqual}"/>）
+        /// 获取或者设置最小值比较模式，（有效比较比较模式为：CompareMode.GreaterThan , CompareMode.GreaterThanOrEqual）
         /// </summary>
         public virtual CompareMode MinCompareMode
         {
@@ -103,7 +106,7 @@ namespace OhPrimitiveTypes
         }
 
         /// <summary>
-        /// 获取或者设置最大值比较模式，有效值：（<see cref="{CompareMode.LessThan | CompareMode.LessThanOrEqaual}"/>）
+        /// 获取或者设置最大值比较模式（有效比较比较模式为：ompareMode.LessThan , CompareMode.LessThanOrEqaual）
         /// </summary>
         public virtual CompareMode MaxCompareMode
         {

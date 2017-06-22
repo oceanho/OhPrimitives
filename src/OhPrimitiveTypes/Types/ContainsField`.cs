@@ -9,7 +9,7 @@ using OhPrimitiveTypes.Extension;
 namespace OhPrimitiveTypes
 {
     /// <summary>
-    /// 一个表示包含指定 <see cref="TPrimitive"/> 数据项比较功能的字段类
+    /// 一个表示包含指定数据项比较功能的字段类
     /// </summary>
     /// <typeparam name="TPrimitive"></typeparam>
     public class ContainsField<TPrimitive> : Field, IMutilpleValueCompareField<TPrimitive>

@@ -13,6 +13,13 @@ namespace OhPrimitiveTypes.Utils
     {
         #region EqualsField<TPrimitive>.IsStatisfy
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TPrimitive"></typeparam>
+        /// <param name="field"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool IsStatisfy<TPrimitive>(EqualsField<TPrimitive> field, TPrimitive value)
             where TPrimitive : struct, IConvertible, IComparable
         {
@@ -26,6 +33,13 @@ namespace OhPrimitiveTypes.Utils
 
         #region ContainsField<TPrimitive>.IsStatisfy
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TPrimitive"></typeparam>
+        /// <param name="field"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool IsStatisfy<TPrimitive>(ContainsField<TPrimitive> field, TPrimitive value)
             where TPrimitive : struct, IConvertible, IComparable
         {
@@ -47,6 +61,14 @@ namespace OhPrimitiveTypes.Utils
 
         #region RangeField<TPrimitive>.IsStatisfy
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TPrimitive"></typeparam>
+        /// <param name="field"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public static bool IsStatisfy<TPrimitive>(RangeField<TPrimitive> field, TPrimitive min, TPrimitive max)
             where TPrimitive : struct, IConvertible, IComparable
         {
@@ -72,6 +94,14 @@ namespace OhPrimitiveTypes.Utils
 
         #region BetweenField<TPrimitive>.IsStatisfy
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TPrimitive"></typeparam>
+        /// <param name="field"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public static bool IsStatisfy<TPrimitive>(BetweenField<TPrimitive> field, TPrimitive min, TPrimitive max)
             where TPrimitive : struct, IConvertible, IComparable
         {
