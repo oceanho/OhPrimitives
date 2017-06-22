@@ -6,7 +6,7 @@ using Shouldly;
 
 using OhPrimitiveTypes;
 
-namespace OhPrimitiveTypes.Test.Fields
+namespace OhPrimitiveTypes.Test
 {
     public class FreeDomRangeFieldTest
     {

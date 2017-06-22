@@ -9,7 +9,7 @@ namespace OhPrimitiveTypes.Utils
     /// <summary>
     /// 字段比较helper
     /// </summary>
-    internal static class FieldCompareHelper
+    public static class FieldCompareHelper
     {
         #region EqualsField<TPrimitive>.IsStatisfy
 
