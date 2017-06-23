@@ -16,6 +16,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "script", "script", "{7A7209A9-C00D-432D-99DD-A5A20E5C6D68}"
 	ProjectSection(SolutionItems) = preProject
 		tool\scripts\NugetPackTask.ps1 = tool\scripts\NugetPackTask.ps1
+		tool\scripts\Startup.ps1 = tool\scripts\Startup.ps1
 	EndProjectSection
 EndProject
 Global
