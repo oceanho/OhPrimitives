@@ -6,7 +6,7 @@ $NugetKey="$ENV:NUGETAPIKEY"
 $NugetSvr="https://www.nuget.org/api/v2/package"
 
 $NugetPack="../../packs"
-$CsProject="../../src/OhPrimitives/OhPrimitives.csproj"
+$CsProject="../../src/OhDotNetLib/OhDotNetLib.csproj"
 
 Function BuildProj($Configuration="Debug"){
 	Invoke-Expression "dotnet restore $CsProject"
@@ -47,6 +47,6 @@ Function PublishNugetPack {
 		Return
 	}
 	Get-ChildItem "$NugetPack/*.nupkg" | ForEach-Object -Process {
-		Invoke-Expression "dotnet nuget push $_.FullName -s $NugetSvr -k $NugetKey"
+		Invoke-Expression "dotnet nuget push $_ -s $NugetSvr -k $NugetKey"
 	}
 }
