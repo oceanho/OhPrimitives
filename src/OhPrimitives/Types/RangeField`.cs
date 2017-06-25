@@ -6,7 +6,7 @@ namespace OhPrimitives
     /// 一个表示最小，最大（不包含最小值和最大值）的区间段比较字段类
     /// </summary>
     /// <typeparam name="TPrimitive"></typeparam>
-    public class RangeField<TPrimitive> : FreeDomRangeField<TPrimitive>
+    public class RangeField<TPrimitive> : FreeDomRangeField<TPrimitive>, IRangeField
         where TPrimitive : struct, IConvertible, IComparable
     {
         private CompareMode m_maxCompareMode = CompareMode.LessThan;
