@@ -24,15 +24,15 @@ namespace OhPrimitives
         /// 实例化 <see cref="SortField"/>
         /// </summary>
         public SortField(SortMode sortMode)
-            : this(0, sortMode)
+            : this(sortMode, 0)
         {
         }
 
         /// <summary>
         /// 实例化 <see cref="SortField"/>
         /// </summary>
-        public SortField(int sortPriority)
-            : this(sortPriority, SortMode.Asc)
+        public SortField(int priority)
+            : this(SortMode.Asc, priority)
         {
         }
 
@@ -40,12 +40,12 @@ namespace OhPrimitives
         /// <summary>
         /// 实例化 <see cref="SortField"/>
         /// </summary>
-        /// <param name="sortPriority">权重</param>
+        /// <param name="priority">权重</param>
         /// <param name="sortMode">排序模式</param>
-        public SortField(int sortPriority, SortMode sortMode)
+        public SortField(SortMode sortMode, int priority)
         {
             SortMode = sortMode;
-            SortPriority = sortPriority;
+            SortPriority = priority;
         }
 
         /// <summary>
@@ -66,7 +66,20 @@ namespace OhPrimitives
         /// <returns></returns>
         public static bool operator >=(SortField left, SortField right)
         {
-            return (left.SortMode == SortMode.Default && right.SortMode != left.SortMode) ? false : (left.SortPriority >= right.SortPriority);
+            if (left != null && right == null)
+            {
+                return true;
+            }
+
+            if (left == null && right != null)
+            {
+                return false;
+            }
+            if (left.SortPriority == right.SortPriority)
+            {
+                return left.SortMode >= right.SortMode;
+            }
+            return left.SortPriority >= right.SortPriority;
         }
 
         /// <summary>
@@ -89,7 +102,20 @@ namespace OhPrimitives
         /// <returns></returns>
         public static bool operator >(SortField left, SortField right)
         {
-            return (left.SortMode == SortMode.Default && right.SortMode != left.SortMode) ? false : (left.SortPriority > right.SortPriority);
+            if (left != null && right == null)
+            {
+                return true;
+            }
+
+            if (left == null && right != null)
+            {
+                return false;
+            }
+            if (left.SortPriority == right.SortPriority)
+            {
+                return left.SortMode > right.SortMode;
+            }
+            return left.SortPriority > right.SortPriority;
         }
 
         /// <summary>
@@ -102,5 +128,57 @@ namespace OhPrimitives
         {
             return !(left > right);
         }
+
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="left"></param>
+        ///// <param name="right"></param>
+        ///// <returns></returns>
+        //public static bool operator ==(SortField left, SortField right)
+        //{            
+        //    if (((right == null && left != null)) || ((right != null && left == null)))
+        //        return false;
+        //    return left.SortMode == right.SortMode && left.SortPriority == right.SortPriority;
+        //}
+
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="left"></param>
+        ///// <param name="right"></param>
+        ///// <returns></returns>
+        //public static bool operator !=(SortField left, SortField right)
+        //{
+        //    return !(left == right);
+        //}
+
+        /// <summary>
+        /// 实现 <see cref="IComparable"/> 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public int CompareTo(object obj)
+        {
+            var other = obj as SortField;
+            if (other == null)
+                throw new ArgumentException("Type not match");
+            if (this < other)
+                return -1;
+            if (this == other)
+                return 0;
+            return 1;
+        }
+
+        //public override int GetHashCode()
+        //{
+        //    return base.GetHashCode();
+        //}
+
+        //public override bool Equals(object obj)
+        //{
+        //    var other = (obj as SortField);
+        //    return other == null ? false : this == other;
+        //}
     }
 }

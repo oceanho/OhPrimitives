@@ -11,18 +11,18 @@ namespace OhPrimitives
     public enum SortMode : int
     {
         /// <summary>
-        /// 默认排序模式：不排序
+        /// 默认模式：不排序
         /// </summary>
         Default = 0,
 
         /// <summary>
-        /// 默认排序模式为：升序
+        /// 排序模式为：降序
         /// </summary>
-        Asc = 1,
+        Desc = 1,
 
         /// <summary>
-        /// 默认排序模式为：降序
+        /// 排序模式为：升序
         /// </summary>
-        Desc = 2,
+        Asc = 2,
     }
 }

@@ -7,7 +7,7 @@ namespace OhPrimitives
     /// <summary>
     /// 定义一个表示拥有排序功能的字段接口
     /// </summary>
-    public interface IHasSortField : IField
+    public interface IHasSortField : IField, IComparable
     {
         /// <summary>
         /// 获取或者设置字段排序模式
