@@ -10,7 +10,7 @@ namespace OhPrimitives
     /// 一个表示支持单值比较功能的字段类
     /// </summary>
     /// <typeparam name="TPrimitive"></typeparam>
-    public class CompareField<TPrimitive> : Field, ISingleValueCompareField<TPrimitive>
+    public class CompareField<TPrimitive> : SortField, ISingleValueCompareField<TPrimitive>
         where TPrimitive : IConvertible, IComparable
     {
         private TPrimitive m_value;

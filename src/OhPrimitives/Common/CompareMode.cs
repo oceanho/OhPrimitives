@@ -8,7 +8,7 @@ namespace OhPrimitives
     /// 字段比较模式
     /// </summary>
     [Flags]
-    public enum CompareMode : Int16
+    public enum CompareMode : int
     {
         /// <summary>
         /// 默认比较模式

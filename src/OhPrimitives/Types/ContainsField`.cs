@@ -12,7 +12,7 @@ namespace OhPrimitives
     /// 一个表示包含指定数据项比较功能的字段类
     /// </summary>
     /// <typeparam name="TPrimitive"></typeparam>
-    public class ContainsField<TPrimitive> : Field, IMutilpleValueCompareField<TPrimitive>
+    public class ContainsField<TPrimitive> : SortField, IMutilpleValueCompareField<TPrimitive>
         where TPrimitive : IConvertible, IComparable
     {
         private TPrimitive[] m_values;
