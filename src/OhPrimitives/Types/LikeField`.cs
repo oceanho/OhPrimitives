@@ -11,7 +11,7 @@ namespace OhPrimitives
     /// 一个表示包含指定单值Like模糊比较功能的字段类
     /// </summary>
     /// <typeparam name="TPrimitive"></typeparam>
-    public class LikeField<TPrimitive> : SortField, ISingleValueCompareField<TPrimitive>, ILikeField
+    public class LikeField<TPrimitive> : SortField, ISingleValueCompareField<TPrimitive>, IField<TPrimitive>, ILikeField
         where TPrimitive : class, IConvertible, IComparable
     {
         private TPrimitive m_value;

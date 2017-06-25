@@ -8,7 +8,7 @@ namespace OhPrimitives
     /// 定义一个表示拥有单值相等比较操作的字段
     /// </summary>
     /// <typeparam name="TPrimitive"></typeparam>
-    public class EqualsField<TPrimitive> : CompareField<TPrimitive>
+    public class EqualsField<TPrimitive> : CompareField<TPrimitive>, IField<TPrimitive>, ICompareField
         where TPrimitive : IConvertible, IComparable
     {
         /// <summary>

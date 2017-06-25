@@ -11,7 +11,7 @@ namespace OhPrimitives
     /// 一个表示最小，最大（自定义比较模式）的区间段比较字段类
     /// </summary>
     /// <typeparam name="TPrimitive"></typeparam>
-    public class FreeDomRangeField<TPrimitive> : SortField, IFreeDomRangeField, IHasMinMaxField<TPrimitive>
+    public class FreeDomRangeField<TPrimitive> : SortField, IFreeDomRangeField, IHasMinMaxField<TPrimitive>, IField<TPrimitive>
         where TPrimitive : struct, IConvertible, IComparable
     {
 
