@@ -5,11 +5,11 @@
     <Description>OceanHo's extended primitive types library</Description>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>OceanHo</Authors>
-    <Company>OhTeam</Company>
+    <Company>OceanHo</Company>
     <RepositoryUrl>https://github.com/oceanho/OhPrimitives.git</RepositoryUrl>
     <PackageProjectUrl>https://github.com/oceanho/OhPrimitives</PackageProjectUrl>
     <PackageTags></PackageTags>
-    <Version>2.2.3$(VersionSuffix)</Version>
+    <Version>2.2.4$(VersionSuffix)</Version>
     <PackageId>OhPrimitives</PackageId>
   </PropertyGroup>
 

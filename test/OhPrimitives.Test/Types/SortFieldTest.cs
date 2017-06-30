@@ -23,7 +23,7 @@ namespace OhPrimitives.Test
         {
             var myfield = new SortField();
             myfield.SortPriority.ShouldBe(0);
-            myfield.SortMode.ShouldBe(SortMode.Default);
+            myfield.SortMode.ShouldBe(SortMode.Disable);
 
             var myfield2 = new SortField(1);
             myfield2.SortPriority.ShouldBe(1);
@@ -46,10 +46,10 @@ namespace OhPrimitives.Test
             (myfield < myfield4).ShouldBe(true);
 
             (myfield2 > myfield3).ShouldBe(true);
-            (myfield2 < myfield4).ShouldBe(true);
             (myfield3 < myfield4).ShouldBe(true);
 
-            (myfield5 >= myfield6).ShouldBe(true);
+            (myfield2 < myfield4).ShouldBe(false);
+            (myfield5 > myfield6).ShouldBe(true);
         }
         #endregion
 
@@ -61,7 +61,7 @@ namespace OhPrimitives.Test
             var sort = new MySortTest()
             {
                 Id = new SortField(SortMode.Asc, 1),
-                Name = new SortField(SortMode.Default)
+                Name = new SortField(SortMode.Disable)
             };
 
             // Id最小，Name 最大
@@ -74,7 +74,7 @@ namespace OhPrimitives.Test
             var sort3 = new MySortTest()
             {
                 Id = new SortField(SortMode.Asc, 2),
-                Name = new SortField(SortMode.Default)
+                Name = new SortField(SortMode.Disable)
             };
 
             var list = new List<MySortTest>() {

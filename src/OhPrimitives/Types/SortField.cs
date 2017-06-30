@@ -16,7 +16,7 @@ namespace OhPrimitives
         /// 实例化 <see cref="SortField"/>
         /// </summary>
         public SortField()
-            : this(SortMode.Default)
+            : this(SortMode.Disable)
         {
         }
 
@@ -51,12 +51,20 @@ namespace OhPrimitives
         /// <summary>
         /// 获取或者设置字段排序模式
         /// </summary>
-        public SortMode SortMode { get => m_SortMode; set => m_SortMode = value; }
+        public SortMode SortMode
+        {
+            get => m_SortMode;
+            set => m_SortMode = value;
+        }
 
         /// <summary>
         /// 获取或者设置字段排序权重（该值越大，排序越往后）
         /// </summary>
-        public int SortPriority { get => m_SortPriority; set => m_SortPriority = value; }
+        public int SortPriority
+        {
+            get => m_SortPriority;
+            set => m_SortPriority = value;
+        }
 
         /// <summary>
         /// 
@@ -75,11 +83,15 @@ namespace OhPrimitives
             {
                 return false;
             }
-            if (left.SortPriority == right.SortPriority)
+            if (left.SortMode == SortMode.Disable && left.SortMode != right.SortMode)
             {
-                return left.SortMode >= right.SortMode;
+                return false;
             }
-            return left.SortPriority >= right.SortPriority;
+            if (right.SortMode == SortMode.Disable && left.SortMode != right.SortMode)
+            {
+                return true;
+            }
+            return (left.SortMode <= right.SortMode) || (left.SortPriority >= right.SortPriority);
         }
 
         /// <summary>
@@ -111,11 +123,15 @@ namespace OhPrimitives
             {
                 return false;
             }
-            if (left.SortPriority == right.SortPriority)
+            if (left.SortMode == SortMode.Disable && left.SortMode != right.SortMode)
             {
-                return left.SortMode > right.SortMode;
+                return false;
             }
-            return left.SortPriority > right.SortPriority;
+            if (right.SortMode == SortMode.Disable && left.SortMode != right.SortMode)
+            {
+                return true;
+            }
+            return (left.SortMode < right.SortMode) || (left.SortPriority > right.SortPriority);
         }
 
         /// <summary>
