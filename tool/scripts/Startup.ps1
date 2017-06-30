@@ -9,7 +9,8 @@ $cmdList = "Command List:`n
 5. ClearNugetPack
 6. PublishNugetPack
 7. ReImport PowerShell Module
-8. Exited
+8. Set nuget's Api Key
+9. Exited
 "
 Write-Host "
 =====================================================
@@ -17,7 +18,7 @@ OceanHo's nuget tools for dotnet writed by PowerShell
 ====================================================="
 While ($true) {
 	Write-Host $cmdList
-	$cmd = Read-Host "Input Command Index£¨1-7£©or PowerShell Command"
+	$cmd = Read-Host "Input Command Index£¨1-9£©or PowerShell Command"
 	If ($cmd -eq "1"){
 		BuildProj
 		Continue
@@ -46,7 +47,11 @@ While ($true) {
 		Import-Module .\NugetPackTask.ps1 -Force
 		Continue
 	}
-	ElseIf ($cmd -eq "8"){
+    ElseIf ($cmd -eq "8"){
+        SetNugetApiKey
+		Continue
+	}
+	ElseIf ($cmd -eq "9"){
 		Break
 	}
 	If ([System.String]::IsNullOrEmpty($cmd) -eq $false) {

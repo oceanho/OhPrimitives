@@ -6,7 +6,7 @@ $NugetKey="$ENV:NUGETAPIKEY"
 $NugetSvr="https://www.nuget.org/api/v2/package"
 
 $NugetPack="../../packs"
-$CsProject="../../src/OhPrimitives/OhPrimitives.csproj"
+$CsProject="../../src/OhDotNetLib/OhDotNetLib.csproj"
 
 Function BuildProj($Configuration="Debug"){
 	Invoke-Expression "dotnet restore $CsProject"
@@ -17,12 +17,14 @@ Function CreateBetaPack {
 	ClearNugetPack
 	BuildProj -Configuration "Debug"
 	Invoke-Expression "dotnet pack --output $NugetPack -c Debug --include-symbols --version-suffix '-Beta' $CsProject"
+	CleanNonSymbolsPack
 }
 
 Function CreateAlphaPack {
 	ClearNugetPack
 	BuildProj -Configuration "Debug"
 	Invoke-Expression "dotnet pack --output $NugetPack --include-symbols --version-suffix '-Alpha' $CsProject"
+	CleanNonSymbolsPack
 }
 
 Function CreateReleasePack {
@@ -49,4 +51,24 @@ Function PublishNugetPack {
 	Get-ChildItem "$NugetPack/*.nupkg" | ForEach-Object -Process {
 		Invoke-Expression "dotnet nuget push $_ -s $NugetSvr -k $NugetKey"
 	}
+}
+
+Function CleanNonSymbolsPack {
+	If (Test-Path $NugetPack){
+		Get-ChildItem "$NugetPack/*.nupkg" | ForEach-Object -Process {
+			If(!($_.Name.EndsWith(".symbols.nupkg"))){
+				Remove-Item $_.FullName > $null
+			}
+		}
+	}
+}
+
+Function SetNugetApiKey {
+	$api_key = Read-Host "Input Your nuget Api Key(Empty Exited)"
+    If([System.String]::IsNullOrEmpty($api_key) -ne $true){
+        $NugetKey = $api_key
+        [System.Environment]::SetEnvironmentVariable("NUGETAPIKEY",$api_key,[System.EnvironmentVariableTarget]::Machine)
+        Return
+    }
+    Write-Warning -Message "The api key is null . nothing to do. "
 }
