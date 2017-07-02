@@ -9,7 +9,7 @@ namespace OhPrimitives
     public class BetweenField<TPrimitive> : FreeDomRangeField<TPrimitive>, IField<TPrimitive>, IBetweenField
         where TPrimitive : struct, IConvertible, IComparable
     {
-        private CompareMode m_maxCompareMode = CompareMode.LessThanOrEqaual;
+        private CompareMode m_maxCompareMode = CompareMode.LessThanOrEqual;
         private CompareMode m_minCompareMode = CompareMode.GreaterThanOrEqual;
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace OhPrimitives
         /// <param name="min">最小值</param>
         /// <param name="max">最大值</param>
         public BetweenField(TPrimitive? min, TPrimitive? max)
-            : base(min, max, CompareMode.GreaterThanOrEqual, CompareMode.LessThanOrEqaual)
+            : base(min, max, CompareMode.GreaterThanOrEqual, CompareMode.LessThanOrEqual)
         {
         }
 

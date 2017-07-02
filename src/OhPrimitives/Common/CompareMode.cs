@@ -38,7 +38,7 @@ namespace OhPrimitives
         /// <summary>
         /// 比较模式为：小于或等于
         /// </summary>
-        LessThanOrEqaual = 32,
+        LessThanOrEqual = 32,
 
         /// <summary>
         /// 比较模式为：大于或者等于

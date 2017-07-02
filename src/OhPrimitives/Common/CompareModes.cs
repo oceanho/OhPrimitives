@@ -25,7 +25,7 @@ namespace OhPrimitives
         /// <summary>
         /// <see cref="BetweenField{TPrimitive}"/> 最大值有效比较模式
         /// </summary>
-        public const CompareMode BetweenFieldMaxValidModes = CompareMode.LessThanOrEqaual;
+        public const CompareMode BetweenFieldMaxValidModes = CompareMode.LessThanOrEqual;
 
         /// <summary>
         /// <see cref="BetweenField{TPrimitive}"/> 最小值有效比较模式
@@ -37,7 +37,7 @@ namespace OhPrimitives
         /// <summary>
         /// <see cref="FreeDomRangeField{TPrimitive}"/> 最大值有效比较模式
         /// </summary>
-        public const CompareMode FreeDomRangeFieldMaxValidModes = CompareMode.LessThan | CompareMode.LessThanOrEqaual;
+        public const CompareMode FreeDomRangeFieldMaxValidModes = CompareMode.LessThan | CompareMode.LessThanOrEqual;
 
         /// <summary>
         /// <see cref="FreeDomRangeField{TPrimitive}"/> 最小值有效比较模式
@@ -65,7 +65,7 @@ namespace OhPrimitives
         /// <summary>
         /// <see cref="CompareField{TPrimitive}"/> 有效比较模式
         /// </summary>
-        public const CompareMode CompareFieldValidModes = CompareMode.Equal | CompareMode.NotEqual | CompareMode.LessThan | CompareMode.LessThanOrEqaual | CompareMode.GreaterThan | CompareMode.GreaterThanOrEqual;
+        public const CompareMode CompareFieldValidModes = CompareMode.Equal | CompareMode.NotEqual | CompareMode.LessThan | CompareMode.LessThanOrEqual | CompareMode.GreaterThan | CompareMode.GreaterThanOrEqual;
         #endregion
     }
 }

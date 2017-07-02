@@ -25,7 +25,7 @@ namespace OhPrimitives.Test
             myfield.Min.ShouldBe(10);
             myfield.Max.ShouldBe(20);
 
-            myfield.MaxCompareMode.ShouldBe(CompareMode.LessThanOrEqaual);
+            myfield.MaxCompareMode.ShouldBe(CompareMode.LessThanOrEqual);
             myfield.MinCompareMode.ShouldBe(CompareMode.GreaterThanOrEqual);
 
             myfield.Min = 1000;
@@ -58,7 +58,7 @@ namespace OhPrimitives.Test
             
             // less/greater
             Assert.Throws<ArgumentException>(() => { myfield.MinCompareMode = CompareMode.LessThan; });
-            Assert.Throws<ArgumentException>(() => { myfield.MinCompareMode = CompareMode.LessThanOrEqaual; });
+            Assert.Throws<ArgumentException>(() => { myfield.MinCompareMode = CompareMode.LessThanOrEqual; });
             Assert.Throws<ArgumentException>(() => { myfield.MinCompareMode = CompareMode.GreaterThan; });
 
 
@@ -88,7 +88,7 @@ namespace OhPrimitives.Test
             myfield.MinCompareMode = CompareMode.GreaterThanOrEqual;
 
             // MaxCompareMode = CompareMode.LessThanOrEqaual should be work
-            myfield.MaxCompareMode = CompareMode.LessThanOrEqaual;
+            myfield.MaxCompareMode = CompareMode.LessThanOrEqual;
         }
         #endregion
     }

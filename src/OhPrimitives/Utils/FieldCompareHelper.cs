@@ -142,7 +142,7 @@ namespace OhPrimitives.Utils
                 right = true;
             }
             {
-                if (field.MaxCompareMode == CompareMode.LessThanOrEqaual)
+                if (field.MaxCompareMode == CompareMode.LessThanOrEqual)
                 {
                     right = max.CompareTo(_min) >= 0 && max.CompareTo(_max) <= 0;
                 }

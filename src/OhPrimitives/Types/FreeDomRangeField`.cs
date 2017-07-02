@@ -17,7 +17,7 @@ namespace OhPrimitives
         private TPrimitive? m_min;
         private TPrimitive? m_max;
 
-        private CompareMode m_maxCompareMode = CompareMode.LessThanOrEqaual;
+        private CompareMode m_maxCompareMode = CompareMode.LessThanOrEqual;
         private CompareMode m_minCompareMode = CompareMode.GreaterThanOrEqual;
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace OhPrimitives
         /// <param name="min">Min value</param>
         /// <param name="max">Max value</param>
         public FreeDomRangeField(TPrimitive? min, TPrimitive? max)
-            : this(min, max, CompareMode.GreaterThanOrEqual, CompareMode.LessThanOrEqaual)
+            : this(min, max, CompareMode.GreaterThanOrEqual, CompareMode.LessThanOrEqual)
         {
         }
 
