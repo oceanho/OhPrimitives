@@ -1,5 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+  <PropertyGroup>
+    <NugetVersion>2.2.8$(VersionSuffix)</NugetVersion>
+  </PropertyGroup>
   <PropertyGroup>
     <TargetFrameworks>netstandard1.6;net46</TargetFrameworks>
     <Description>OceanHo's extended primitive types library</Description>
@@ -9,7 +11,7 @@
     <RepositoryUrl>https://github.com/oceanho/OhPrimitives.git</RepositoryUrl>
     <PackageProjectUrl>https://github.com/oceanho/OhPrimitives</PackageProjectUrl>
     <PackageTags></PackageTags>
-    <Version>2.2.7$(VersionSuffix)</Version>
+    <Version>$(NugetVersion)</Version>
     <PackageId>OhPrimitives</PackageId>
   </PropertyGroup>
 

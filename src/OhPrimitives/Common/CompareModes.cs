@@ -58,7 +58,7 @@ namespace OhPrimitives
         public const CompareMode ContainsFieldValidModes = CompareMode.Contains | CompareMode.NotContains;
 
         /// <summary>
-        /// <see cref="LikeField{TPrimitive}"/> 有效比较模式
+        /// <see cref="LikeField"/> 有效比较模式
         /// </summary>
         public const CompareMode LikeFieldValidModes = CompareMode.LeftLike | CompareMode.RightLike | CompareMode.FullSearchLike;
 
