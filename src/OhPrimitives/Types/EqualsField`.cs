@@ -29,16 +29,16 @@ namespace OhPrimitives
         }
 
         /// <summary>
-        /// 获取或者设置比较模式（有效比较比较模式为：CompareMode.Equal）
+        /// 获取或者设置比较模式（有效比较比较模式为：<see cref="CompareModes.EqualsFieldValidModes"/>）
         /// </summary>
         public override CompareMode CompareMode
         {
             get => base.CompareMode;
             set
             {
-                if (value != CompareMode.Equal)
+                if (value != CompareModes.EqualsFieldValidModes)
                 {
-                    throw new ArgumentException($"invalid value.it's value should be {CompareMode.Equal.ToString()}");
+                    throw new ArgumentException($"invalid value.it's value should be {CompareModes.EqualsFieldValidModes.ToString()}");
                 }
                 base.CompareMode = value;
             }

@@ -77,17 +77,31 @@ namespace OhPrimitives.Utils
 
             var left = false;
             var right = false;
-
-            if (field.MinCompareMode == CompareMode.GreaterThan)
+            if (field.Min == null)
             {
-                left = min.CompareTo(_min) > 0 && min.CompareTo(_max) < 0;
+                left = true;
             }
-
-            if (field.MaxCompareMode == CompareMode.LessThan)
+            else
             {
-                right = max.CompareTo(_min) > 0 && max.CompareTo(_max) < 0;
+                if (field.MinCompareMode == CompareMode.GreaterThan)
+                {
+                    left = min.CompareTo(_min) > 0 && min.CompareTo(_max) < 0;
+                }
             }
-
+            if (field.Max == null)
+            {
+                right = true;
+            }
+            {
+                if (field.MaxCompareMode == CompareMode.LessThan)
+                {
+                    right = max.CompareTo(_min) > 0 && max.CompareTo(_max) < 0;
+                }
+            }
+            if (field.Min == null && field.Max == null)
+            {
+                return false;
+            }
             return left && right;
         }
         #endregion
@@ -112,16 +126,31 @@ namespace OhPrimitives.Utils
             var left = false;
             var right = false;
 
-            if (field.MinCompareMode == CompareMode.GreaterThanOrEqual)
+            if (field.Min == null)
             {
-                left = min.CompareTo(_min) >= 0 && min.CompareTo(_max) <= 0;
+                left = true;
             }
-
-            if (field.MaxCompareMode == CompareMode.LessThanOrEqaual)
+            else
             {
-                right = max.CompareTo(_min) >= 0 && max.CompareTo(_max) <= 0;
+                if (field.MinCompareMode == CompareMode.GreaterThanOrEqual)
+                {
+                    left = min.CompareTo(_min) >= 0 && min.CompareTo(_max) <= 0;
+                }
             }
-
+            if (field.Max == null)
+            {
+                right = true;
+            }
+            {
+                if (field.MaxCompareMode == CompareMode.LessThanOrEqaual)
+                {
+                    right = max.CompareTo(_min) >= 0 && max.CompareTo(_max) <= 0;
+                }
+            }
+            if (field.Min == null &&field.Max == null)
+            {
+                return false;
+            }
             return left && right;
         }
         #endregion

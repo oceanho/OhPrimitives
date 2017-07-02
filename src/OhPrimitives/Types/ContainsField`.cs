@@ -16,9 +16,7 @@ namespace OhPrimitives
         where TPrimitive : IConvertible, IComparable
     {
         private TPrimitive[] m_values;
-        private CompareMode m_compareMode = CompareMode.Default;
-
-        private static readonly CompareMode _allowCompareModes = CompareMode.Contains | CompareMode.NotContains;
+        private CompareMode m_compareMode = CompareMode.Contains;
 
         /// <summary>
         /// 实例化 <see cref="ContainsField{TPrimitive}"/>
@@ -46,16 +44,16 @@ namespace OhPrimitives
         }
 
         /// <summary>
-        /// 获取或者设置比较模式，有效比较模式 <see cref="CompareMode.Contains"/> / <see cref="CompareMode.NotContains"/> 
+        /// 获取或者设置比较模式（有效比较比较模式为：<see cref="CompareModes.ContainsFieldValidModes"/>）
         /// </summary>
         public CompareMode CompareMode
         {
             get => m_compareMode;
             set
             {
-                if (!_allowCompareModes.IsInclude(value))
+                if (!CompareModes.ContainsFieldValidModes.IsInclude(value))
                 {
-                    throw new ArgumentException($"invalid value.it's value should be {_allowCompareModes.ToString()}");
+                    throw new ArgumentException($"invalid value.it's value should be {CompareModes.ContainsFieldValidModes.ToString()}");
                 }
                 m_compareMode = value;
             }

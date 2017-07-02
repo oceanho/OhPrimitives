@@ -11,10 +11,9 @@ namespace OhPrimitives
     /// 一个表示最小，最大（自定义比较模式）的区间段比较字段类
     /// </summary>
     /// <typeparam name="TPrimitive"></typeparam>
-    public class FreeDomRangeField<TPrimitive> : SortField, IFreeDomRangeField, IHasMinMaxField<TPrimitive>, IField<TPrimitive>
+    public class FreeDomRangeField<TPrimitive> : IFreeDomRangeField, IHasMinMaxField<TPrimitive>, IField<TPrimitive>
         where TPrimitive : struct, IConvertible, IComparable
     {
-
         private TPrimitive? m_min;
         private TPrimitive? m_max;
 
@@ -22,18 +21,10 @@ namespace OhPrimitives
         private CompareMode m_minCompareMode = CompareMode.GreaterThanOrEqual;
 
         /// <summary>
-        /// TPrimitive default
-        /// </summary>
-        protected static readonly TPrimitive DefaultTPrimitive = default(TPrimitive);
-
-        private static readonly CompareMode _maxAllowCopareModes = CompareMode.LessThan | CompareMode.LessThanOrEqaual;
-        private static readonly CompareMode _minAllowCopareModes = CompareMode.GreaterThan | CompareMode.GreaterThanOrEqual;
-
-        /// <summary>
         /// 实例化 <see cref="FreeDomRangeField{TPrimitive}"/>
         /// </summary>
         public FreeDomRangeField()
-            : this(DefaultTPrimitive, DefaultTPrimitive)
+            : this(default(TPrimitive), default(TPrimitive))
         { }
 
         /// <summary>
@@ -52,7 +43,7 @@ namespace OhPrimitives
         /// <param name="minCompareMode">最小值比较模式</param>
         /// <param name="maxCompareMode">最大值比较模式</param>
         public FreeDomRangeField(CompareMode minCompareMode, CompareMode maxCompareMode)
-            : this(DefaultTPrimitive, DefaultTPrimitive, minCompareMode, maxCompareMode)
+            : this(default(TPrimitive), default(TPrimitive), minCompareMode, maxCompareMode)
         {
         }
 
@@ -90,32 +81,32 @@ namespace OhPrimitives
         }
 
         /// <summary>
-        /// 获取或者设置最小值比较模式，（有效比较比较模式为：CompareMode.GreaterThan , CompareMode.GreaterThanOrEqual）
+        /// 获取或者设置最小值比较模式，（有效比较比较模式为：<see cref="CompareModes.FreeDomRangeFieldMinValidModes"/>）
         /// </summary>
         public virtual CompareMode MinCompareMode
         {
             get => m_minCompareMode;
             set
             {
-                if (!_minAllowCopareModes.IsInclude(value))
+                if (!CompareModes.FreeDomRangeFieldMinValidModes.IsInclude(value))
                 {
-                    throw new ArgumentException($"invalid value.it's value should be {_minAllowCopareModes.ToString()}");
+                    throw new ArgumentException($"invalid value.it's value should be {CompareModes.FreeDomRangeFieldMinValidModes.ToString()}");
                 }
                 m_minCompareMode = value;
             }
         }
 
         /// <summary>
-        /// 获取或者设置最大值比较模式（有效比较比较模式为：ompareMode.LessThan , CompareMode.LessThanOrEqaual）
+        /// 获取或者设置最大值比较模式（有效比较比较模式为：<see cref="CompareModes.FreeDomRangeFieldMaxValidModes"/>）
         /// </summary>
         public virtual CompareMode MaxCompareMode
         {
             get => m_maxCompareMode;
             set
             {
-                if (!_maxAllowCopareModes.IsInclude(value))
+                if (!CompareModes.FreeDomRangeFieldMaxValidModes.IsInclude(value))
                 {
-                    throw new ArgumentException($"invalid value.it's value should be {_maxAllowCopareModes.ToString()}");
+                    throw new ArgumentException($"invalid value.it's value should be {CompareModes.FreeDomRangeFieldMaxValidModes.ToString()}");
                 }
                 m_maxCompareMode = value;
             }

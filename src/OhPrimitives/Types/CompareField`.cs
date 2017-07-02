@@ -16,9 +16,6 @@ namespace OhPrimitives
         private TPrimitive m_value;
         private CompareMode m_compareMode = CompareMode.Default;
 
-        private static readonly CompareMode _allowCompareModes = CompareMode.Equal | CompareMode.NotEqual
-            | CompareMode.LessThan | CompareMode.LessThanOrEqaual | CompareMode.GreaterThan | CompareMode.GreaterThanOrEqual;
-
         /// <summary>
         /// 实例化 <see cref="CompareField{TPrimitive}"/>
         /// </summary>
@@ -57,16 +54,16 @@ namespace OhPrimitives
         }
 
         /// <summary>
-        /// 获取或者设置比较模式（有效比较比较模式为：CompareMode.Equal , CompareMode.NotEqualCompareMode.LessThan ,CompareMode.LessThanOrEqaual, CompareMode.GreaterThan , CompareMode.GreaterThanOrEqual）
+        /// 获取或者设置比较模式（有效比较比较模式为：<see cref="CompareModes.CompareFieldValidModes"/>）
         /// </summary>
         public virtual CompareMode CompareMode
         {
             get => m_compareMode;
             set
             {
-                if (!_allowCompareModes.IsInclude(value))
+                if (!CompareModes.CompareFieldValidModes.IsInclude(value))
                 {
-                    throw new ArgumentException($"invalid value.it's value should be {_allowCompareModes.ToString()}");
+                    throw new ArgumentException($"invalid value.it's value should be {CompareModes.CompareFieldValidModes.ToString()}");
                 }
                 m_compareMode = value;
             }

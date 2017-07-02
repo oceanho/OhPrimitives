@@ -16,7 +16,7 @@ namespace OhPrimitives
         /// 实例化 <see cref="BetweenField{TPrimitive}"/>
         /// </summary>
         public BetweenField()
-            : this(DefaultTPrimitive, DefaultTPrimitive)
+            : this(default(TPrimitive), default(TPrimitive))
         {
         }
 
@@ -31,32 +31,32 @@ namespace OhPrimitives
         }
 
         /// <summary>
-        /// 获取或者设置最小值比较模式（有效比较比较模式为：CompareMode.GreaterThanOrEqual）
+        /// 获取或者设置最小值比较模式（有效比较比较模式为：<see cref="CompareModes.BetweenFieldMinValidModes"/>）
         /// </summary>
         public override CompareMode MinCompareMode
         {
             get => m_minCompareMode;
             set
             {
-                if (value != CompareMode.GreaterThanOrEqual)
+                if (value != CompareModes.BetweenFieldMinValidModes)
                 {
-                    throw new ArgumentException($"invalid value.it's value should be {CompareMode.GreaterThanOrEqual.ToString()}");
+                    throw new ArgumentException($"invalid value.it's value should be {CompareModes.BetweenFieldMinValidModes.ToString()}");
                 }
                 m_minCompareMode = value;
             }
         }
 
         /// <summary>
-        /// 获取或者设置最大值比较模式（有效比较比较模式为：CompareMode.LessThanOrEqaual）
+        /// 获取或者设置最大值比较模式（有效比较比较模式为：<see cref="CompareModes.BetweenFieldMaxValidModes"/>）
         /// </summary>
         public override CompareMode MaxCompareMode
         {
             get => m_maxCompareMode;
             set
             {
-                if (value != CompareMode.LessThanOrEqaual)
+                if (value != CompareModes.BetweenFieldMaxValidModes)
                 {
-                    throw new ArgumentException($"invalid value.it's value should be {CompareMode.LessThanOrEqaual.ToString()}");
+                    throw new ArgumentException($"invalid value.it's value should be {CompareModes.BetweenFieldMaxValidModes.ToString()}");
                 }
                 m_maxCompareMode = value;
             }

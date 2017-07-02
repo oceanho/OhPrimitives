@@ -16,7 +16,7 @@ namespace OhPrimitives
         /// 实例化 <see cref=" RangeField{TPrimitive}"/>
         /// </summary>
         public RangeField()
-            : this(DefaultTPrimitive, DefaultTPrimitive)
+            : this(default(TPrimitive), default(TPrimitive))
         {
         }
 
