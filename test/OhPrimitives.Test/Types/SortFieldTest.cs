@@ -90,6 +90,8 @@ namespace OhPrimitives.Test
 
             var orderbyNameList = list.OrderBy(p => p.Name);
             orderbyIdList.FirstOrDefault().ShouldBe(sort2); // Name 排序最大
+
+            var orderbyNameDescendingList = list.OrderByDescending(p => p.Name);
         }
         #endregion
     }

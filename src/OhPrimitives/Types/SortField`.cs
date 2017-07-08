@@ -144,6 +144,7 @@ namespace OhPrimitives
         {
             return !(left > right);
         }
+
         /// <summary>
         /// 实现 <see cref="IComparable"/> 
         /// </summary>
