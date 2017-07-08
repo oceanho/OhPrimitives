@@ -9,9 +9,6 @@ namespace OhPrimitives
     /// </summary>
     public class SortField<TPrimivite> : _SortField, IHasSortField, IField
     {
-        private int m_SortPriority;
-        private SortMode m_SortMode;
-
         /// <summary>
         /// 实例化 <see cref="SortField{TPrimivite}"/>
         /// </summary>
