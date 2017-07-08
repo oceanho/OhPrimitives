@@ -9,5 +9,9 @@ namespace OhPrimitives
     /// </summary>
     public interface IField
     {
+        /// <summary>
+        /// 过滤器开关
+        /// </summary>
+        FilterSwitch FilterSwitch { get; set; }
     }
 }
