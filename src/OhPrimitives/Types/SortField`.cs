@@ -154,7 +154,8 @@ namespace OhPrimitives
         {
             var other = obj as SortField<TPrimivite>;
             if (other == null)
-                throw new ArgumentException($"Type not match, {obj?.GetType()} can't convert as {typeof(SortField<TPrimivite>)}");
+                return 1;
+                // throw new ArgumentException($"Type not match, {obj?.GetType()} can't convert as {typeof(SortField<TPrimivite>)}");
             if (this < other)
                 return -1;
             if (this == other)

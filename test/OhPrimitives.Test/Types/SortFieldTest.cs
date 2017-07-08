@@ -68,13 +68,23 @@ namespace OhPrimitives.Test
             var sort2 = new MySortTest()
             {
                 Id = new SortField<int>(SortMode.Desc, 1),
-                Name = new SortField<string>(SortMode.Asc, 2)
+                Name = new SortField<string>(SortMode.Asc, 2),
+                Price = new CompareField<decimal>
+                {
+                    SortMode = SortMode.Desc,
+                    SortPriority = 1001
+                }
             };
 
             var sort3 = new MySortTest()
             {
                 Id = new SortField<int>(SortMode.Asc, 2),
-                Name = new SortField<string>(SortMode.Disable)
+                Name = new SortField<string>(SortMode.Disable),
+                Price = new CompareField<decimal>
+                {
+                    SortMode = SortMode.Asc,
+                    SortPriority = 1000
+                }
             };
 
             var list = new List<MySortTest>() {
@@ -91,7 +101,8 @@ namespace OhPrimitives.Test
             var orderbyNameList = list.OrderBy(p => p.Name);
             orderbyIdList.FirstOrDefault().ShouldBe(sort2); // Name 排序最大
 
-            var orderbyNameDescendingList = list.OrderByDescending(p => p.Name);
+            var orderbyNameDescendingList = list.OrderByDescending(p => (p.Price as IHasSortField));
+            Assert.Same(sort2, orderbyNameDescendingList.FirstOrDefault());
         }
         #endregion
     }
@@ -100,5 +111,6 @@ namespace OhPrimitives.Test
     {
         public SortField<int> Id { get; set; }
         public SortField<String> Name { get; set; }
+        public CompareField<decimal> Price { get; set; }
     }
 }
