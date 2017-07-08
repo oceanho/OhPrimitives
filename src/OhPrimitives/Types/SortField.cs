@@ -7,13 +7,13 @@ namespace OhPrimitives
     /// <summary>
     /// 表示拥有排序功能的字段类，该类实现了 <see cref="IHasSortField"/> 接口
     /// </summary>
-    public class SortField : Field, IHasSortField, IField
+    public class SortField<TPrimivite> : Field, IHasSortField, IField, IEqualityComparer<SortField<TPrimivite>>
     {
         private int m_SortPriority;
         private SortMode m_SortMode;
 
         /// <summary>
-        /// 实例化 <see cref="SortField"/>
+        /// 实例化 <see cref="SortField{TPrimivite}"/>
         /// </summary>
         public SortField()
             : this(SortMode.Disable)
@@ -21,7 +21,7 @@ namespace OhPrimitives
         }
 
         /// <summary>
-        /// 实例化 <see cref="SortField"/>
+        /// 实例化 <see cref="SortField{TPrimivite}"/>
         /// </summary>
         public SortField(SortMode sortMode)
             : this(sortMode, 0)
@@ -29,7 +29,7 @@ namespace OhPrimitives
         }
 
         /// <summary>
-        /// 实例化 <see cref="SortField"/>
+        /// 实例化 <see cref="SortField{TPrimivite}"/>
         /// </summary>
         public SortField(int priority)
             : this(SortMode.Asc, priority)
@@ -38,7 +38,7 @@ namespace OhPrimitives
 
 
         /// <summary>
-        /// 实例化 <see cref="SortField"/>
+        /// 实例化 <see cref="SortField{TPrimivite}"/>
         /// </summary>
         /// <param name="priority">权重</param>
         /// <param name="sortMode">排序模式</param>
@@ -72,7 +72,7 @@ namespace OhPrimitives
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator >=(SortField left, SortField right)
+        public static bool operator >=(SortField<TPrimivite> left, SortField<TPrimivite> right)
         {
             if (left != null && right == null)
             {
@@ -100,7 +100,7 @@ namespace OhPrimitives
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator <=(SortField left, SortField right)
+        public static bool operator <=(SortField<TPrimivite> left, SortField<TPrimivite> right)
         {
             return !(left >= right);
         }
@@ -112,7 +112,7 @@ namespace OhPrimitives
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator >(SortField left, SortField right)
+        public static bool operator >(SortField<TPrimivite> left, SortField<TPrimivite> right)
         {
             if (left != null && right == null)
             {
@@ -140,35 +140,10 @@ namespace OhPrimitives
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public static bool operator <(SortField left, SortField right)
+        public static bool operator <(SortField<TPrimivite> left, SortField<TPrimivite> right)
         {
             return !(left > right);
         }
-
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        ///// <param name="left"></param>
-        ///// <param name="right"></param>
-        ///// <returns></returns>
-        //public static bool operator ==(SortField left, SortField right)
-        //{            
-        //    if (((right == null && left != null)) || ((right != null && left == null)))
-        //        return false;
-        //    return left.SortMode == right.SortMode && left.SortPriority == right.SortPriority;
-        //}
-
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        ///// <param name="left"></param>
-        ///// <param name="right"></param>
-        ///// <returns></returns>
-        //public static bool operator !=(SortField left, SortField right)
-        //{
-        //    return !(left == right);
-        //}
-
         /// <summary>
         /// 实现 <see cref="IComparable"/> 
         /// </summary>
@@ -176,7 +151,7 @@ namespace OhPrimitives
         /// <returns></returns>
         public int CompareTo(object obj)
         {
-            var other = obj as SortField;
+            var other = obj as SortField<TPrimivite>;
             if (other == null)
                 throw new ArgumentException("Type not match");
             if (this < other)
@@ -186,15 +161,25 @@ namespace OhPrimitives
             return 1;
         }
 
-        //public override int GetHashCode()
-        //{
-        //    return base.GetHashCode();
-        //}
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public bool Equals(SortField<TPrimivite> x, SortField<TPrimivite> y)
+        {
+            return x.SortMode == y.SortMode && x.SortPriority == y.SortPriority;
+        }
 
-        //public override bool Equals(object obj)
-        //{
-        //    var other = (obj as SortField);
-        //    return other == null ? false : this == other;
-        //}
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public int GetHashCode(SortField<TPrimivite> obj)
+        {
+            return $"{obj.GetType().FullName}_{typeof(TPrimivite).FullName}_{obj.SortMode}_{obj.SortPriority}".GetHashCode();
+        }
     }
 }

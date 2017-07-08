@@ -10,7 +10,7 @@ namespace OhPrimitives
     /// <summary>
     /// 一个表示包含指定单值Like模糊比较功能的字段类
     /// </summary>
-    public class LikeField : SortField, ISingleValueCompareField<String>, IField<String>, ILikeField
+    public class LikeField : SortField<String>, ISingleValueCompareField<String>, IField<String>, ILikeField
     {
         private String m_value;
         private CompareMode m_compareMode = CompareMode.FullSearchLike;

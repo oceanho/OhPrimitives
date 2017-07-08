@@ -21,24 +21,24 @@ namespace OhPrimitives.Test
         [Fact]
         public void Verify_BaseOperatorShouldBeWork()
         {
-            var myfield = new SortField();
+            var myfield = new SortField<int>();
             myfield.SortPriority.ShouldBe(0);
             myfield.SortMode.ShouldBe(SortMode.Disable);
 
-            var myfield2 = new SortField(1);
+            var myfield2 = new SortField<int>(1);
             myfield2.SortPriority.ShouldBe(1);
             myfield2.SortMode.ShouldBe(SortMode.Asc);
 
-            var myfield3 = new SortField(SortMode.Desc);
+            var myfield3 = new SortField<int>(SortMode.Desc);
             myfield3.SortPriority.ShouldBe(0);
             myfield3.SortMode.ShouldBe(SortMode.Desc);
 
-            var myfield4 = new SortField(SortMode.Desc, 2);
+            var myfield4 = new SortField<int>(SortMode.Desc, 2);
             myfield4.SortPriority.ShouldBe(2);
             myfield4.SortMode.ShouldBe(SortMode.Desc);
 
-            var myfield5 = new SortField(SortMode.Asc, 2);
-            var myfield6 = new SortField(SortMode.Desc, 2);
+            var myfield5 = new SortField<int>(SortMode.Asc, 2);
+            var myfield6 = new SortField<int>(SortMode.Desc, 2);
 
             (myfield < myfield2).ShouldBe(true);
             (myfield < myfield3).ShouldBe(true);
@@ -60,21 +60,21 @@ namespace OhPrimitives.Test
         {
             var sort = new MySortTest()
             {
-                Id = new SortField(SortMode.Asc, 1),
-                Name = new SortField(SortMode.Disable)
+                Id = new SortField<int>(SortMode.Asc, 1),
+                Name = new SortField<string>(SortMode.Disable)
             };
 
             // Id最小，Name 最大
             var sort2 = new MySortTest()
             {
-                Id = new SortField(SortMode.Desc, 1),
-                Name = new SortField(SortMode.Asc, 2)
+                Id = new SortField<int>(SortMode.Desc, 1),
+                Name = new SortField<string>(SortMode.Asc, 2)
             };
 
             var sort3 = new MySortTest()
             {
-                Id = new SortField(SortMode.Asc, 2),
-                Name = new SortField(SortMode.Disable)
+                Id = new SortField<int>(SortMode.Asc, 2),
+                Name = new SortField<string>(SortMode.Disable)
             };
 
             var list = new List<MySortTest>() {
@@ -96,7 +96,7 @@ namespace OhPrimitives.Test
 
     internal class MySortTest
     {
-        public SortField Id { get; set; }
-        public SortField Name { get; set; }
+        public SortField<int> Id { get; set; }
+        public SortField<String> Name { get; set; }
     }
 }
